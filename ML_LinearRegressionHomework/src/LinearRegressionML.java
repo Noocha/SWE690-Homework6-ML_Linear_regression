@@ -8,6 +8,7 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 
+
 public class LinearRegressionML {
     public static void main(String[] args) {
         process("src/Web_site_visitors_2014-2019_training.arff", "src/Web_site_visitors_2014-2019_testing.arff", "src/Web_site_visitors_2014-2019_predict.arff");
@@ -18,7 +19,7 @@ public class LinearRegressionML {
             ArffLoader loader = new ArffLoader();
             loader.setFile(new File(fileName));
             Instances dataSet = loader.getDataSet();
-            dataSet.setClassIndex(4);
+            dataSet.setClassIndex(1);
             return dataSet;
 
         } catch (IOException e) {
@@ -48,7 +49,8 @@ public class LinearRegressionML {
             System.out.println("Prediction");
             Instance predictingDataSet = getDataSet(predictFileName).lastInstance();
             double value = classifier.classifyInstance(predictingDataSet);
-            System.out.println("Predict value of Returning visitor is ");
+            System.out.println("Predict PageLoad is 1115");
+            System.out.println("Predict value of Unique Visits is ");
             System.out.println(value);
 
         } catch (Exception e) {
